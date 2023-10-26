@@ -36,7 +36,7 @@ jobs:
       run: sudo apt update -y && sudo apt install -y repo elfutils libarchive-tools
     - name: Repo sync
       run: |
-        repo init -u https://github.com/mvaisakh/android_kernel_manifest -b eva-oneplus-5.4 --depth=1
+        repo init -u https://github.com/kleinmoriarty/android_kernel_manifest -b eva-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
         echo "TAG_NAME=$(date -u +%d%m%Y%I%M)" >> $GITHUB_ENV
     - name: Sync Clang
