@@ -77,8 +77,10 @@ jobs:
       if: github.event.inputs.CCACHE_CONFIG == 'true'
       run: |
         cd $GITHUB_WORKSPACE/kernel/msm-5.4
-        wget https://gist.githubusercontent.com/natsumerinchan/77d5ad9ea42b5a1b4667de9f54c69d8e/raw/03cbe567e798cef5261f551668310067a878ffef/0003-Makefile-Use-CCACHE-for-faster-compilation.patch
-     #   git apply ./0003-Makefile-Use-CCACHE-for-faster-compilation.patch
+        git submodule add https://github.com/tiann/KernelSU.git
+        git apply ../patches/ksu.patch
+        git submodule update --init --recursive
+
     - name: Clang Build
       run: |
         sed -i s/build-user/mvaisakh/g build/_setup_env.sh
