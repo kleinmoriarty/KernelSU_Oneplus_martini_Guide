@@ -23,7 +23,7 @@ on:
         KERNEL_DEFCONFIG:
           description: 'Kernel Config'
           required: true
-          default: "klein_defconfig"
+          default: "ken_defconfig"
           type: string
         ANYKERNEL3_SOURCE:
           description: 'Anykernel3 Source'
